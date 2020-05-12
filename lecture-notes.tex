@@ -1,0 +1,101 @@
+\documentclass{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian,english]{babel}
+
+\usepackage{changepage}
+
+\usepackage{graphicx}
+
+\usepackage{hyperref}
+
+\usepackage{fontspec}
+\setmainfont{xkcd-Regular}
+
+\usepackage{dirtytalk}
+\usepackage{epigraph}
+\newenvironment{script}{}{\par}
+\newcommand{\Epigraph}[2]{\begin{script}\epigraph{\fontfamily{lmss}\selectfont\textit{#1}}{#2}\end{script}}
+
+\usepackage{imakeidx}
+
+\usepackage{afterpage}
+
+\author{\uppercase Victor S. Santos \\ Aerospace Engineering Undergraduate \\
+ Universidade Federal de Minas Gerais}
+\title{\uppercase Aerospace Engineering Lecture Notes}
+
+\makeindex
+
+\makeatletter
+\let\old@endpart\@endpart
+\renewcommand\@endpart[1][]{%
+\begin{adjustwidth}{150pt}{-50pt}
+\begin{quote}\vfill#1\vfill\end{quote}%
+\end{adjustwidth}
+\old@endpart}
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{empty}
+
+\tableofcontents
+
+\frontmatter
+% \afterpage{\null\newpage}
+
+
+\chapter*{Introduction}\addcontentsline{toc}{chapter}{Introduction}\markboth{Introduction}{}
+
+This text is a subjective, personal, non-exhaustive and
+not ambitious synthesis of what I've learned, and more important than
+anything: were to find stuff about the AE field.
+
+The first part is about the fundamentals and tools required for 
+advancing and don't get completely lost.
+The second part is an application of those fundamentals 
+and tools (a.k.a. engineering).
+The third and last part is about crazy stuff.
+
+I made this because I'm a terrible note taker, and I can visualize
+a future me wanting some information from the past, and wasting
+a ton of time in finding it. So this is for you, future me.
+
+Enjoy.
+
+\mainmatter
+
+\part{\uppercase{Fundamentals}}
+[
+This is where we just see lectures and more lectures about things that
+we think we will never use in our days about Earth. But what if we're
+wrong?
+]
+\include{fundamentals/fundamentals}
+
+\part{\uppercase{Engineering}}
+[
+When things are starting to get funny, and you 
+start to get mad.
+]
+\include{engineering/engineering}
+
+\part{\uppercase{Advanced Topics}}
+[
+At this point things transposed the norm barrier
+and are getting insane.
+But, really, quite useful.
+]
+\include{advanced/advanced}
+
+
+\printindex
+
+% \vfill
+% \centering{The End.}
+
+\end{document}
